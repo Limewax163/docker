@@ -1,0 +1,51 @@
+version: "3"
+services:
+  nginx:
+    image: nginx
+    container_name: web_nginx
+    ports:
+      - "80:80"
+    volumes:
+      - /docker.nginx/sites-enable:/etc/nginx/sites-enable
+      - /docker/nginx/www:/var/www
+    networks:
+      mynetwork:
+        ipv4_address: 172.80.80.2
+    environment:
+      - MY_CONTAINER_id=NGINX
+
+  DB:
+    image: postgres
+    container_name: Postgres_DB
+    ports:
+      - "5432:5432"
+    environment:
+      - MY_CONTAINER_ID=POSTGRESQL
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=postgres_test
+      - POSTGRES_USER=postgres
+    volumes:
+      - /docker/DB:/var/lib/potgres/data
+    networks:
+      mynetwork:
+        ipv4_address: 172.80.80.3
+
+  php8.1-fpm:
+    container_name: php8.1_fpm
+    image: php:8.1.1-fpm
+    ports:
+      - "9000:9000"
+    networks:
+      internal:
+        ipv4_address: 172.80.80.4
+    environment:
+      - MY_CONTAINER_ID=PHP-FPM
+networks:
+  mynetwork:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.80.80.0/24
+      options:
+        com.docker.network.bridge.enable_ip_masquerade: "true"
