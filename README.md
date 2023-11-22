@@ -4,7 +4,7 @@
 ```
 docker pull <id_image>
 ```
-**скачивание образа <sup>из DockerHU</sup>**
+**скачивание образа _из DockerHUB_**
 
 ```
 docker image ls
