@@ -1,4 +1,4 @@
-# Help docker/docker-compose command :shipit::
+# Help docker/docker-compose command
 
 
 `docker pull `<id_image> - скачивание образа _из DockerHUB_
