@@ -1,10 +1,7 @@
 # Help docker/docker-compose command
 
 
-```
-docker pull <id_image>
-```
-**скачивание образа _из DockerHUB_**
+`docker pull` <id_image> - скачивание образа _из DockerHUB_
 
 ```
 docker image ls
