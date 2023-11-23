@@ -1,7 +1,7 @@
 # Help docker/docker-compose command
 
 
-`docker pull `<image> - скачивание образа _из DockerHUB_
+`docker pull `<docker_image> - скачивание образа _из DockerHUB_
 
 `docker image ls` - показывает все скаченные (pull) и собраные (build) образы
 
