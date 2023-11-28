@@ -1,6 +1,5 @@
 # Help docker/docker-compose command
 
-
 `docker pull `<docker_image> - скачивание образа _из DockerHUB_
 
 `docker image ls` - показывает все скаченные (pull) и собраные (build) образы
@@ -8,6 +7,9 @@
 `docker rmi `<id_image> - удаляет выбранный образ по его <id_image>
 
 `docker run `... - запускает контейнер из скаченных, либо собранных в системе образов (image)
+
+> [!NOTE]
+>Для сборки образа необходим сценарий сборки, который описывается в файле dockerfile
 
 `docker build` - команда создания образа _docker_
 
@@ -51,3 +53,11 @@
 
 `VOLUME` - создает точку монтирования для работы с постоянным хранилищем
 
+## Docker-compose
+
+Так-же как и docker build, compose работает по сценарию описанному в docker-compose.yaml файле.
+
+`docker-compose up`
+`docker-compose ps`
+`docker-compose stop`
+`docker-compose down`
