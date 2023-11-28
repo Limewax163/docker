@@ -27,7 +27,7 @@
 
 **--pull** - всегда пытаться получить последнюю версию родительского образа
 
-## Dockerfile
+### Dockerfile
 
 `FROM` - указать базовый образ на основе которого будет собираться новый
 
@@ -55,7 +55,8 @@
 
 ## Docker-compose
 
-Так-же как и docker build, compose работает по сценарию описанному в docker-compose.yaml файле.
+> [!NOTE]
+>Так-же как и docker build, compose работает по сценарию описанному в docker-compose.yaml файле.
 
 `docker-compose up`
 `docker-compose ps`
