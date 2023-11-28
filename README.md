@@ -56,9 +56,12 @@
 ## Docker-compose
 
 > [!NOTE]
->Так-же как и docker build, compose работает по сценарию описанному в docker-compose.yaml файле.
+>Так-же как и docker build, compose работает по сценарию описанному в docker-compose.yaml файле, для запуска необходимо находиться в папке где расположен сценарий docker-compose.yaml
 
-`docker-compose up`
-`docker-compose ps`
-`docker-compose stop`
-`docker-compose down`
+`docker-compose up` - запускает сценарий docker-compose.yaml
+
+`docker-compose ps` - показывает все запущенные, в настоящий момент, контейнеры docker-compose. При добавлении ключа -a покажет все контейнеры docker-compose которые (не запустились, были завершены, работают в настоящий момент, ... и т.д.)
+
+`docker-compose stop` - останавливает контейнеры запущенные сценарием docker-compose.yaml
+
+`docker-compose down` - останавливает и **УДАЛЯЕТ** контейнеры запусщенные в docker-compose сценарии.
