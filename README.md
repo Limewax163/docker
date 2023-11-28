@@ -13,7 +13,7 @@
 
 Конструкция команды сборки:
 
-`docker build [-keys options] [path]`
+`docker build [-keys options] [path_to_dockerfile]`
 
 Ключи:
 
