@@ -5,7 +5,7 @@ services:
     volumes:
       - zabbix-postgres:/var/lib/postgresql
     env_file:
-      - .zabbix-postgres-env
+      - ./.env/.zabbix-postgres-env
     healthcheck:
       test: [ "CMD", "pg_isready", "-q", "-d", "${POSTGRES_DB}", "-U", "${POSTGRES_USER}" ]
       interval: 10s
@@ -20,7 +20,7 @@ services:
     image: redis
     restart: always
     env_file:
-      - ./.zabbix-redis-env
+      - ./.env/.zabbix-redis-env
     command: redis-server --requirepass ${REDIS_PASSWORD}
     networks:
       zabbix-network:
@@ -29,7 +29,7 @@ services:
   zabbix-server:
     image: zabbix/zabbix-server-pgsql:6.4.6-ubuntu
     env_file:
-      - .zabbix-server-env
+      - ./.env/.zabbix-server-env
     healthcheck:
       test: grep -qr "zabbix_server" /proc/*/status || exit 1
       interval: 10s
@@ -52,7 +52,7 @@ services:
   zabbix-dashboard:
     image: zabbix/zabbix-web-nginx-pgsql:6.4.6-ubuntu
     env_file:
-      - .zabbix-dashboard-env
+      - ./.env/.zabbix-dashboard-env
     ports:
       - 10000:8080
     restart: unless-stopped
