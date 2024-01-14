@@ -1,13 +1,13 @@
 version: '2.3'
 
 services:
-  redis:
+  gitlab-redis:
     restart: always
     image: redis:6.2.6
     command:
     - --loglevel warning
     volumes:
-    - redis-data:/data:Z
+    - gitlab-redis-data:/data:Z
     networks:
       gitlab-network:
         ipv4_address: xxx.xxx.xxx.xxx
@@ -29,7 +29,7 @@ services:
     restart: always
     image: gitlab/gitlab-ce:16.7.3-ce.0
     depends_on:
-    - redis
+    - gitlab-redis
     - gitlab-postgres
     ports:
     - "80:80"
@@ -48,7 +48,7 @@ services:
       - ./.gitlab-env
 
 volumes:
-  redis-data:
+  gitlab-redis-data:
   gitlab-postgres:
   gitlab-data:
 
