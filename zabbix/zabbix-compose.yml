@@ -84,7 +84,7 @@ services:
 #      - zabbix-server
 #      - zabbix-redis
 networks:
-  zabbix-network:
+  network:
     driver: bridge
     ipam:
       driver: default
@@ -94,4 +94,4 @@ networks:
         com.docker.network.bridge.enable_ip_masquerade: "true"
 
 volumes:
-  zabbix-postgres
+  postgres
