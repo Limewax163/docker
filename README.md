@@ -8,6 +8,10 @@
 
 `docker run` ... - запускает контейнер из скаченных, либо собранных в системе образов (image)
 
+`docker volume ls` - покажет все созданные директории для докера
+
+`docker volume rm <id_volume/name_volime>` - удаляет выбранную директорию либо по его <id_volume> либо по его <name_volume>
+
 ___
 
 > [!NOTE]
