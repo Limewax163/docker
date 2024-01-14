@@ -1,5 +1,7 @@
 # Help docker/docker-compose command
 
+`docker ps -a` - показывает информацию о всех запущенных контейнерах (включая контейнеры запущенные в docker-compose сценариях)
+
 `docker pull <docker_image>` - скачивание образа _из DockerHUB_
 
 `docker image ls` - показывает все скаченные (pull) и собраные (build) образы
