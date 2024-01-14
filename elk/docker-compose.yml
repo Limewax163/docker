@@ -61,7 +61,7 @@ services:
       - 50000:50000/udp
       - 9600:9600
     env_file:
-      - ./.env/logstash-env
+      - ./.env/.logstash-env
     networks:
       - network
     depends_on:
