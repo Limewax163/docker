@@ -19,6 +19,8 @@ services:
   zabbix-redis:
     image: redis
     restart: always
+    env_file:
+      - ./.zabbix-redis-env
     command: redis-server --requirepass ${REDIS_PASSWORD}
     networks:
       zabbix-network:
