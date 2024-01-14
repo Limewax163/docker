@@ -10,7 +10,7 @@ services:
     - redis-data:/data:Z
     networks:
       gitlab-network:
-        ipv4_address: 172.60.60.4
+        ipv4_address: xxx.xxx.xxx.xxx
 
 
   gitlab-postgres:
@@ -22,7 +22,7 @@ services:
       - ./.gitlab-postgres-env
     networks:
       gitlab-network:
-        ipv4_address: 172.60.60.3
+        ipv4_address: xxx.xxx.xxx.xxx
 
 
   gitlab:
@@ -43,7 +43,7 @@ services:
       start_period: 5m
     networks:
       gitlab-network:
-        ipv4_address: 172.60.60.2
+        ipv4_address: xxx.xxx.xxx.xxx
     env_file:
       - ./.gitlab-env
 
@@ -58,6 +58,6 @@ networks:
     ipam:
       driver: default
       config:
-        - subnet: 172.60.60.0/24
+        - subnet: xxx.xxx.xxx.xxx/xx
       options:
         com.docker.network.bridge.enable_ip_masquerade: "true"
