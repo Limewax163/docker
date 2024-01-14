@@ -28,10 +28,6 @@ services:
 
   zabbix-server:
     image: zabbix/zabbix-server-pgsql:6.4.6-ubuntu
-    environment:
-      - REDIS_HOST_PASSWORD=${REDIS_PASSWORD}
-      - DB_SERVER_HOST=zabbix-postgres
-      - ZABBIX_REMOTECOMMANDS=1
     env_file:
       - .zabbix-server-env
     healthcheck:
