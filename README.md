@@ -12,6 +12,10 @@
 
 `docker volume rm <id_volume/name_volime>` - удаляет выбранную директорию либо по его <id_volume> либо по его <name_volume>
 
+`docker network ls` - покажет все сети созданные для докера
+
+`docker network rm <id-network/name-nwtwork>` - удаляет выбранную сеть либо по его <id-network> либо по его <name-nwtwork>
+
 ___
 
 > [!NOTE]
