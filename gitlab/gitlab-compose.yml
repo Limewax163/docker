@@ -48,12 +48,12 @@ services:
       - ./.env/.gitlab-env
 
 volumes:
-  gitlab-redis-data:
-  gitlab-postgres:
-  gitlab-data:
+  redis-data:
+  postgres:
+  data:
 
 networks:
-  gitlab-network:
+  network:
     driver: bridge
     ipam:
       driver: default
