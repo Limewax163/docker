@@ -1,0 +1,9 @@
+node.name=elasticsearch
+ES_JAVA_OPTS=-Xms512m -Xmx512m
+      # Bootstrap password.
+      # Used to initialize the keystore during the initial startup of
+      # Elasticsearch. Ignored on subsequent runs.
+ELASTIC_PASSWORD=1nv1n0Ver1ta$elk
+      # Use single node discovery in order to disable production mode and avoid bootstrap checks.
+      # see: https://www.elastic.co/guide/en/elasticsearch/reference/current/bootstrap-checks.html
+discovery.type=single-node
