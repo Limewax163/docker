@@ -37,9 +37,9 @@ services:
       retries: 3
     restart: unless-stopped
     depends_on:
-      zabbix-postgres:
+      postgres:
         condition: service_healthy
-      zabbix-redis:
+      redis:
         condition: service_started
     links:
       - postgres
