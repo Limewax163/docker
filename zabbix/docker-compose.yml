@@ -5,7 +5,11 @@ services:
     volumes:
       - postgres:/var/lib/postgresql
     env_file:
-      - ./.env/.zabbix-postgres-env
+      - .env
+    environment:
+      - POSTGRES_USER=zabbix
+      - POSTGRES_DB=zabbix
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
     healthcheck:
       test: [ "CMD", "pg_isready", "-q", "-d", "${POSTGRES_DB}", "-U", "${POSTGRES_USER}" ]
       interval: 10s
@@ -14,24 +18,31 @@ services:
     restart: unless-stopped
     networks:
       network:
-        ipv4_address: 172.10.10.2
 
   redis:
     image: redis
     restart: always
     env_file:
-      - ./.env/.zabbix-redis-env
+      - .env
+    environment:
+      - REDIS_PASSWORD=${REDIS_PASSWORD}
     command: redis-server --requirepass ${REDIS_PASSWORD}
     networks:
       network:
-        ipv4_address: 172.10.10.3
 
   server:
     image: zabbix/zabbix-server-pgsql:6.4.6-ubuntu
     env_file:
-      - ./.env/.zabbix-server-env
+      - .env
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_USER=zabbix
+      - POSTGRES_DB=zabbix
+      - REDIS_HOST_PASSWORD=${REDIS_HOST_PASSWORD}
+      - DB_SERVER_HOST=postgres
+      - ZABBIX_REMOTECOMMANDS=1
     healthcheck:
-      test: grep -qr "zabbix_server" /proc/*/status || exit 1
+      test: grep -qr "Zabbix server" /proc/*/status || exit 1
       interval: 10s
       timeout: 5s
       retries: 3
@@ -46,13 +57,21 @@ services:
       - redis
     networks:
       network:
-        ipv4_address: 172.10.10.4
-
 
   dashboard:
     image: zabbix/zabbix-web-nginx-pgsql:6.4.6-ubuntu
     env_file:
-      - ./.env/.zabbix-dashboard-env
+      - .env
+    environment:
+    - ZBX_SERVER_NAME=server
+    - ZBX_SERVER_HOST=server
+    - ZBX_SERVER_PORT=10051
+    - DB_SERVER_HOST=postgres
+    - DB_SERVER_PORT=5432
+    - REDIS_HOST_PASSWORD=${REDIS_HOST_PASSWORD}
+    - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    - POSTGRES_USER=zabbix
+    - POSTGRES_DB=zabbix
     ports:
       - 10000:8080
     restart: unless-stopped
@@ -66,7 +85,6 @@ services:
       - redis
     networks:
       network:
-        ipv4_address: 172.10.10.5
 
 #  zabbix-agent:
 #    image: zabbix/zabbix-agent2:6.4.6-ubuntu
@@ -85,13 +103,6 @@ services:
 #      - zabbix-redis
 networks:
   network:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: 172.10.10.0/29
-      options:
-        com.docker.network.bridge.enable_ip_masquerade: "true"
 
 volumes:
   postgres:
