@@ -94,4 +94,4 @@ networks:
         com.docker.network.bridge.enable_ip_masquerade: "true"
 
 volumes:
-  postgres
+  postgres:
