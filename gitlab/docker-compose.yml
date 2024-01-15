@@ -7,45 +7,43 @@ services:
     command:
     - --loglevel warning
     volumes:
-    - gitlab-redis-data:/data:Z
+    - redis-data:/data:Z
     networks:
-      gitlab-network:
-        ipv4_address: xxx.xxx.xxx.xxx
-
+      network:
 
   postgres:
     restart: always
     image: postgres:14
     volumes:
-    - gitlab-postgres:/var/lib/postgresql:Z
-    env_file:
-      - ./.env/.gitlab-postgres-env
+    - postgres:/var/lib/postgresql:Z
+    environment:
+    - POSTGRES_USER=gitlab
+    - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    - POSTGRES_DB=gitlab
     networks:
-      gitlab-network:
-        ipv4_address: xxx.xxx.xxx.xxx
-
+      network:
 
   app:
     restart: always
     image: gitlab/gitlab-ce:16.7.3-ce.0
     depends_on:
-    - gitlab-redis
-    - gitlab-postgres
+    - redis
+    - postgres
     ports:
     - "80:80"
     volumes:
-    - gitlab-data:/home/git/data:Z
+    - data:/home/git/data:Z
     healthcheck:
       test: ["CMD", "/usr/local/sbin/healthcheck"]
       interval: 5m
       timeout: 10s
       retries: 3
       start_period: 5m
-    networks:
-      gitlab-network:
-        ipv4_address: xxx.xxx.xxx.xxx
     env_file:
-      - ./.env/.gitlab-env
+      - .env
+    networks:
+      network:
+
 
 volumes:
   redis-data:
@@ -54,10 +52,3 @@ volumes:
 
 networks:
   network:
-    driver: bridge
-    ipam:
-      driver: default
-      config:
-        - subnet: xxx.xxx.xxx.xxx/xx
-      options:
-        com.docker.network.bridge.enable_ip_masquerade: "true"
