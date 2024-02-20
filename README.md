@@ -30,7 +30,7 @@
 > }
 > ```
 
-`docker network rm <id-network/name-nwtwork>` - удаляет выбранную сеть либо по его <id-network> либо по его <name-nwtwork>
+`docker network rm <id-network/name-nwtwork>` - удаляет выбранную сеть либо по его `<id-network>` либо по его `<name-nwtwork>`
 
 ___
 
