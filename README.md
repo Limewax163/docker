@@ -30,19 +30,16 @@
 > Если необходимо явно задать рабочую сеть docker, можно воспользоваться правкой конфига /etc/docker/daemon.json
 
 <details>
-  <summary><code>daemon.json</code>
-
-/etc/docker/daemon.json
-
-```
+  <summary><code>daemon.json</code></summary>
+  <p>/etc/docker/daemon.json</p>
+  <pre>
 {
-        "default-address-pools":
-        [
-                {"base":"172.17.0.0/16","size":24}
-        ]
+    "default-address-pools":
+    [
+        {"base":"172.17.0.0/16","size":24}
+    ]
 }
-```
-
+  </pre>
 </details>
 
 `docker network rm <id-network/name-nwtwork>` - удаляет выбранную сеть либо по его `<id-network>` либо по его `<name-nwtwork>`
