@@ -31,7 +31,6 @@
 
 <details>
   <summary><code>daemon.json</code></summary>
-  <p>/etc/docker/daemon.json</p>
   <pre>
 {
     "default-address-pools":
