@@ -56,6 +56,7 @@ ___
 ### Dockerfile
 
 <details>
+  <summary>Основные сущности Dockerfile</summary>
   
 `FROM` - указать базовый образ на основе которого будет собираться новый
 
