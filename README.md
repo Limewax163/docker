@@ -1,7 +1,5 @@
 # Help docker/docker-compose command
 
-`docker ps` - показывает информацию о всех запущенных контейнерах (включая контейнеры запущенные в docker-compose сценариях)
-
 <details>
   <summary><code>docker ps</code> - - показывает информацию о всех запущенных контейнерах (включая контейнеры запущенные в docker-compose сценариях)</summary>
 
