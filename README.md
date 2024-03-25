@@ -37,8 +37,7 @@
     [
         {"base":"172.17.0.0/16","size":24}
     ]
-}
-  </pre>
+}</pre>
 </details>
 
 `docker network rm <id-network/name-nwtwork>` - удаляет выбранную сеть либо по его `<id-network>` либо по его `<name-nwtwork>`
