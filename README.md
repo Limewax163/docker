@@ -28,9 +28,12 @@
 
 > [!NOTE]
 > Если необходимо явно задать рабочую сеть docker, можно воспользоваться правкой конфига /etc/docker/daemon.json
+
 <details>
   <summary><code>daemon.json</code>
+
 /etc/docker/daemon.json
+
 ```
 {
         "default-address-pools":
