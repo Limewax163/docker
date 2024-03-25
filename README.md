@@ -85,6 +85,7 @@ ___
 
 > [!NOTE]
 >Так-же как и docker build, compose работает по сценарию описанному в docker-compose.yaml файле, для запуска необходимо находиться в папке где расположен сценарий docker-compose.yaml
+
 <details>
   <summary><code>docker-compose up</code> - запускает сценарий docker-compose.yaml
 
