@@ -27,18 +27,20 @@
 `docker network ls` - покажет все сети созданные для докера
 
 > [!NOTE]
-> Если необходимо явно задать рабочую сеть docker, можно воспользоваться правкой конфига (В данном случае отдаем docker сеть 172.17.0.0/16)
->
-> 
-> /etc/docker/daemon.json
-> ```
-> {
->        "default-address-pools":
->        [
->                {"base":"172.17.0.0/16","size":24}
->        ]
-> }
-> ```
+> Если необходимо явно задать рабочую сеть docker, можно воспользоваться правкой конфига /etc/docker/daemon.json
+<details>
+  <summary><code>daemon.json</code>
+/etc/docker/daemon.json
+```
+{
+        "default-address-pools":
+        [
+                {"base":"172.17.0.0/16","size":24}
+        ]
+}
+```
+
+</details>
 
 `docker network rm <id-network/name-nwtwork>` - удаляет выбранную сеть либо по его `<id-network>` либо по его `<name-nwtwork>`
 
