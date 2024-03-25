@@ -27,7 +27,7 @@
 `docker network ls` - покажет все сети созданные для докера
 
 > [!NOTE]
-> Если необходимо явно задать рабочую сеть docker, можно воспользоваться правкой конфига /etc/docker/daemon.json
+> Если необходимо явно задать рабочую сеть docker, можно воспользоваться правкой конфига `/etc/docker/daemon.json`
 
 <details>
   <summary><code>daemon.json</code></summary>
@@ -85,9 +85,12 @@ ___
 
 > [!NOTE]
 >Так-же как и docker build, compose работает по сценарию описанному в docker-compose.yaml файле, для запуска необходимо находиться в папке где расположен сценарий docker-compose.yaml
+<details>
+  <summary><code>docker-compose up</code> - запускает сценарий docker-compose.yaml
 
-`docker-compose up` - запускает сценарий docker-compose.yaml
 - при добавлении флага `-d` поднимет контейнеры в фоновом режиме
+
+</details>
 
 `docker-compose ps` - показывает все запущенные, в настоящий момент, контейнеры docker-compose
 - при добавлении флага `-a` покажет все контейнеры docker-compose которые не запустились, были завершены, работают в настоящий момент, ... и т.д.
