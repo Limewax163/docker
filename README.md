@@ -139,8 +139,22 @@ x-tamplate: &<tamplate_name>
 
 ```
 
-  </details>
+</details>
 
 > [!NOTE]
 > В docker-compose можно использовать профили для определенных сервисов. Сервисы будут загружаться если профиль будет указан в `<.env>` либо если в команду `<docker-compose>` будет передан флаг с профилем например: `<docker-compose --profile <my_profile> up -d>`
 
+<details>
+  <summary>Объявление профиля в docker-compose</summary>
+
+```
+  adminer:
+    profiles: [adminer]
+    image: adminer
+    ports:
+      - "8880:8080"
+    networks:
+      - network
+```
+
+</details>
