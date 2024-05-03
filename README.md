@@ -128,7 +128,9 @@ ___
 - Указывается любая информация о шаблоне, затем указывается имя шаблона. В шаблоне может быть сколько угодно сущностей. Затем шаблон вставляется в необходимое место с помощью `<<: *<tamplate_name>`
 
 ```
-<tamplate_info>: &<tamplate_name>
+version: <compose_version>
+
+x-tamplate: &<tamplate_name>
   restart: unless-stopped
   env_file:
     - ./.env
