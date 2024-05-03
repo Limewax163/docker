@@ -130,15 +130,15 @@ ___
 ```
 version: <compose_version>
 
+############ tamplate ##############
 x-tamplate: &<tamplate_name>
   restart: unless-stopped
-  env_file:
-    - ./.env
-  build: .
+  networks:
+    - network
 
-services:
-  app:
-    <<: *<tamplate_name>
+#use it with - <<: *<tamplate_name>
+####################################
+
 ```
 
   </details>
