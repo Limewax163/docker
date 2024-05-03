@@ -143,3 +143,6 @@ x-tamplate: &<tamplate_name>
 
   </details>
 
+> [!NOTE]
+> В docker-compose можно использовать профили для определенных сервисов. Сервисы будут загружаться если профиль будет указан в `<.env>` либо если в команду `<docker-compose>` будет передан флаг с профилем например: `<docker-compose --profile <my_profile> up -d>`
+
