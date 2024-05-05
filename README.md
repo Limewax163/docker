@@ -116,6 +116,7 @@ ___
 </details>
 
 `docker-compose stop` - останавливает контейнеры запущенные сценарием docker-compose.yaml
+
 ___
 
 ### Шаблоны в docker-compose
@@ -142,6 +143,7 @@ x-tamplate: &<tamplate_name>
 ```
 
 </details>
+
 ___
 
 ### Профили в docker-compose.
@@ -162,6 +164,7 @@ ___
 ```
 
 </details>
+
 ___
 
 ### Многострочные блоки в yaml
