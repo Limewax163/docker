@@ -158,3 +158,11 @@ x-tamplate: &<tamplate_name>
 ```
 
 </details>
+
+
+
+https://alisoftware.github.io/yaml/2021/08/19/yaml-part2-strings/
+
+https://www.purestorage.com/knowledge/what-is-yaml-multiline-string.html
+
+https://yaml-multiline.info/
