@@ -148,7 +148,7 @@ ___
 
 ### Профили в docker-compose.
 Для каждого сервиса может быть определен профиль. При запуске docker-compose будут подниматься только те сервисы, профиль которых будет указан при запуске (можно указать сразу несколько профилей)
-Сервисы будут загружаться если профиль будет указан в `<.env>` <details><summary>`<.env>`</summary>PROFILE_NAME=production</details> либо если в команду `<docker-compose>` будет передан флаг с профилем например: `<docker-compose --profile <my_profile> up -d>`
+Сервисы будут загружаться если профиль будет указан в `<.env>` ```<.env>PROFILE_NAME=production``` либо если в команду `<docker-compose>` будет передан флаг с профилем например: `<docker-compose --profile <my_profile> up -d>`
 
 <details>
   <summary>Объявление профиля в docker-compose</summary>
