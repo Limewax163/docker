@@ -83,7 +83,7 @@ ___
 ## Docker-compose
 
 > [!NOTE]
->Так-же как и docker build, compose работает по сценарию описанному в docker-compose.yaml файле, для запуска необходимо находиться в папке где расположен сценарий docker-compose.yaml
+>Так-же как и docker build, compose работает по сценарию описанному в docker-compose.yaml файле, для запуска необходимо находиться в папке где расположен сценарий docker-compose.yaml либо указать местоположение `docker-compose.yaml` через флаг `-f`
 
 <details>
   <summary><code>docker-compose up</code> - запускает сценарий docker-compose.yaml</summary>
@@ -117,8 +117,9 @@ ___
 
 `docker-compose stop` - останавливает контейнеры запущенные сценарием docker-compose.yaml
 
-> [!NOTE]
-> В docker-compose можно использовать шаблоны, которые будут добавляться в определенно указанном месте (или сразу в нескольких). Это удобно если для группы сервисов указываются одни и те же сущности.
+### Шаблоны в docker-compose
+Добавляются в определенно указанном месте/нескольких местах.
+Удобно если для группы сервисов указываются одни и те же сущности.
 
 <details>
   <summary>Конструкция шаблона в docker-compose</summary>
@@ -141,8 +142,9 @@ x-tamplate: &<tamplate_name>
 
 </details>
 
-> [!NOTE]
-> В docker-compose можно использовать профили для определенных сервисов. Сервисы будут загружаться если профиль будет указан в `<.env>` <details><summary>`<.env>`</summary>PROFILE_NAME=production</details> либо если в команду `<docker-compose>` будет передан флаг с профилем например: `<docker-compose --profile <my_profile> up -d>`
+### Профили в docker-compose.
+Для каждого сервиса может быть определен профиль. При запуске docker-compose будут подниматься только те сервисы, профиль которых будет указан при запуске (можно указать сразу несколько профилей)
+Сервисы будут загружаться если профиль будет указан в `<.env>` <details><summary>`<.env>`</summary>PROFILE_NAME=production</details> либо если в команду `<docker-compose>` будет передан флаг с профилем например: `<docker-compose --profile <my_profile> up -d>`
 
 <details>
   <summary>Объявление профиля в docker-compose</summary>
@@ -159,10 +161,57 @@ x-tamplate: &<tamplate_name>
 
 </details>
 
+### Многострочные блоки в yaml
 
+Многострочные блоки вызываются через `>` и `|` в дополнении к ним можно использовать несколько сценариев вывода информации из массива строк:
 
-https://alisoftware.github.io/yaml/2021/08/19/yaml-part2-strings/
+<details>
+  <summary>Многострочные блоки</summary>
 
-https://www.purestorage.com/knowledge/what-is-yaml-multiline-string.html
+Вывод строк сохраняется как есть (учитываются переходы на новую строку)
+```
+steps:
+  - label: "Build the app"
+    key: "build"
+    command: |
+      echo "--- Install gems"
+      bundle install
+      echo "--- Build the app"
+      bundle exec fastlane build
+```
+Вывод строк заменяет все переходы на новую строку пробелом в следствии чего все что записанно в данном варианте будет выведено одной строкой.
+```
+notify:
+  - slack:
+      channels: ["#build-notifs"]
+      message: >
+        Your build have failed. You might want to check your
+        CI logs for more details about the failure, or ping
+        your friendly neighbourhood Infrastructure Engineer
+        on call to ask for help.
+    if: build.state == "failed"
+```
+Несколько вариантов использования дополнительных опций и примеры вывода
+```
+examples:
+  clip: >
+    This content will end with a LF character
+    but not include the final empty lines.
+    
+    
+  strip: >-
+    This content will neither contain a trailing LF character
+    nor the trailing empty line.
+    
+  keep: >+
+    This content will keep both the LF
+    and the trailing empty lines.
+    
+    
+equivalent-output:
+  clip: "This content will end with a LF character but not include the final empty lines.\n"
+  strip: "This content will neither contain a trailing LF character nor the trailing empty line."
+  keep: "This content will keep both the LF and the trailing empty lines.\n\n\n"
+```
 
-https://yaml-multiline.info/
+</details>
