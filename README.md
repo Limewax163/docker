@@ -219,4 +219,6 @@ equivalent-output:
   keep: "This content will keep both the LF and the trailing empty lines.\n\n\n"
 ```
 
+Дополнительно можно посмотреть представление [`ТУТ`](https://yaml-multiline.info/)
+
 </details>
