@@ -34,11 +34,9 @@
   <summary><code>daemon.json</code></summary>
   <pre>
 {
-    "default-address-pools":
-    [
-        {"base":"172.17.0.0/16","size":24}
-    ]
-}</pre>
+    "default-address-pools":[{"base":"172.17.0.0/16","size":24}]
+}
+  </pre>
 </details>
 
 ___
