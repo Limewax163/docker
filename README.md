@@ -8,19 +8,20 @@
 
 </details>
 
-`docker pull <docker_image>` - скачивание образа _из DockerHUB_
-
-`docker image ls` - показывает все скаченные (pull) и собраные (build) образы
-
-`docker rmi <id_image>` - удаляет выбранный образ по его <id_image>
-
-`docker run <id_image:tag>` - запускает контейнер из скаченных, либо собранных в системе образов (image)
-
-`docker volume ls` - покажет все созданные директории для докера
-
-`docker volume rm <id_volume/name_volime>` - удаляет выбранную директорию либо по его <id_volume> либо по его <name_volume>
-
-`docker network rm <id-network/name-nwtwork>` - удаляет выбранную сеть либо по его `<id-network>` либо по его `<name-nwtwork>`
+- `docker-compose up` - поднимает контейнеры из описанного в текущей директории конфига compose
+  - `-d` - отвязывает консоль
+  - `-f` - явно указать путь и название до конфига .yml (флаг применим к множеству команд где идет взаимодействие с файлом конфигурации compose
+- `docker-compose down` - роняет контейнеры из описанного в текущей директории конфига compose
+  - `-v` - дополнительно чистит volumes
+- `docker-compose start/stop/restart` - запускает/останавливает/перезапускает контейнеры из описанного в текущей директории конфига `docker-compose.yml` (более мягкая перезагрузка нежели down/up)
+  - `docker compose start/stop/restart <container_name>` - можно работать с отдельными сервисами явно указав их после команды
+- `docker pull <docker_image>` - скачивание образа _из DockerHUB_
+- `docker image ls` - показывает все скаченные (pull) и собраные (build) образы
+- `docker rmi <id_image>` - удаляет выбранный образ по его <id_image>
+- `docker run <id_image:tag>` - запускает контейнер из скаченных, либо собранных в системе образов (image)
+- `docker volume ls` - покажет все созданные директории для докера
+- `docker volume rm <id_volume/name_volime>` - удаляет выбранную директорию либо по его <id_volume> либо по его <name_volume>
+- `docker network rm <id-network/name-nwtwork>` - удаляет выбранную сеть либо по его `<id-network>` либо по его `<name-nwtwork>`
 
 ### О проверке доступности памяти и чистке
 
