@@ -27,7 +27,7 @@
 
 `docker network ls` - покажет все сети созданные для докера
 
-Настройки конфига Docker - `/etc/docker/daemon.json`
+## Настройки конфига Docker - `/etc/docker/daemon.json`
 
 <details>
   <summary><code>daemon.json</code></summary>
