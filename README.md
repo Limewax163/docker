@@ -27,14 +27,20 @@
 
 `docker network ls` - покажет все сети созданные для докера
 
-> [!NOTE]
-> Если необходимо явно задать рабочую сеть docker, можно воспользоваться правкой конфига `/etc/docker/daemon.json`
+Настройки конфига Docker - `/etc/docker/daemon.json`
 
 <details>
   <summary><code>daemon.json</code></summary>
   <pre>
 {
-    "default-address-pools":[{"base":"172.17.0.0/16","size":24}]
+    "default-address-pools":[{"base":"172.17.0.0/16","size":24}], - задается рабочая сетка докера
+    "insecure-registries":["registry.gitlab.limewax.ru"], - настройка недоверенных регистров контейнеров
+    "registry-mirrors":["https://mirror.gcr.io"], - настройка зеркал для пула контейнеров
+    "log-driver": "json-file", - настройки логирования
+    "log-opts": {
+      "max-size": "10m",
+      "max-file": "3"
+      }
 }
   </pre>
 </details>
