@@ -50,7 +50,7 @@ ___
 ___
 
 <details>
-  <summary><code>Настройки конфига Docker - /etc/docker/daemon.json</code></summary>
+  <summary>Настройки конфига Docker - <code>/etc/docker/daemon.json</code></summary>
   <pre>
 {
     "default-address-pools":[{"base":"172.17.0.0/16","size":24}], - задается рабочая сетка докера
