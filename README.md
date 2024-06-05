@@ -15,6 +15,8 @@
   - `-v` - дополнительно чистит volumes
 - `docker-compose start/stop/restart` - запускает/останавливает/перезапускает контейнеры из описанного в текущей директории конфига `docker-compose.yml` (более мягкая перезагрузка нежели down/up)
   - `docker compose start/stop/restart <container_name>` - можно работать с отдельными сервисами явно указав их после команды
+- `docker-compose logs <service_name>` - показывает логи контейнеров из композа. Если не указывать <service_name> из композа, покажет логи по всем сервисам композа.
+  - `-f` - привязывает консоль к логам
 - `docker pull <docker_image>` - скачивание образа _из DockerHUB_
 - `docker image ls` - показывает все скаченные (pull) и собраные (build) образы
 - `docker rmi <id_image>` - удаляет выбранный образ по его <id_image>
@@ -105,8 +107,6 @@ ___
 - `VOLUME` - создает точку монтирования для работы с постоянным хранилищем
 
 </details>
-
-## Docker-compose
 
 > [!NOTE]
 >Так-же как и docker build, compose работает по сценарию описанному в docker-compose.yaml файле, для запуска необходимо находиться в папке где расположен сценарий docker-compose.yaml либо указать местоположение `docker-compose.yaml` через флаг `-f`
