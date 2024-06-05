@@ -35,10 +35,8 @@
   - `-a` - более серьезная очистка (возможно удалит данные которые потенциально могли бы использоваться в будущем)
 - `docker volume prune` - Чистит мертвые/неиспользуемые volumes
 
-## Настройки конфига Docker - `/etc/docker/daemon.json`
-
 <details>
-  <summary><code>daemon.json</code></summary>
+  <summary><code>Настройки конфига Docker - `/etc/docker/daemon.json`</code></summary>
   <pre>
 {
     "default-address-pools":[{"base":"172.17.0.0/16","size":24}], - задается рабочая сетка докера
