@@ -35,6 +35,20 @@
   - `-a` - более серьезная очистка (возможно удалит данные которые потенциально могли бы использоваться в будущем)
 - `docker volume prune` - Чистит мертвые/неиспользуемые volumes
 
+___
+
+<details>
+  <summary>Взаимодействие с контейнерами docker</summary>
+
+- `docker exec <flags> <container_name/id> <command>` - по сути подключение к docker с выполнением какой-то определенной команды внутри
+  - `-i` - запуск команды в интерактивном режиме
+  - `-t` - запуск команды с подключением к терминалу
+  - `-u` -
+
+</details>
+
+___
+
 <details>
   <summary><code>Настройки конфига Docker - /etc/docker/daemon.json</code></summary>
   <pre>
@@ -58,10 +72,7 @@ ___
 
 `docker build` - команда создания образа _docker_
 
-`docker exec <flags> <container_name/id> <command>` - взаимодействие с контейнерами docker
-- -i
-- -t
-- -u
+
 
 Конструкция команды сборки:
 
