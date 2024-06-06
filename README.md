@@ -112,6 +112,10 @@ x-tamplate: &<tamplate_name>
 #use it with - <<: *<tamplate_name>
 ####################################
 
+service:
+  image: nginx:latest
+  <<: *<tamplate_name>
+...
 ```
 
 </details>
