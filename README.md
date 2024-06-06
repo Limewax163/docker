@@ -133,7 +133,7 @@ PROFILE_NAME=production
 
 ```
   adminer:
-    profiles: [adminer]
+    profiles: [production]
     image: adminer
     ports:
       - "8880:8080"
