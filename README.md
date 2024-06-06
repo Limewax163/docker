@@ -66,7 +66,7 @@ ___
 ___
 
 <details>
-  <summary>Взаимодействие с контейнерами docker</summary>
+  <summary><b>Взаимодействие с контейнерами docker</b></summary>
 
 - `docker exec <flags> <container_name/id> <command>` - по сути подключение к docker с выполнением какой-то определенной команды внутри
   - `-i` - запуск команды в интерактивном режиме
@@ -78,7 +78,7 @@ ___
 ___
 
 <details>
-  <summary>Настройки конфига Docker - <code>/etc/docker/daemon.json</code></summary>
+  <summary><b>Настройки конфига Docker</b> - <code>/etc/docker/daemon.json</code></summary>
   <pre>
 {
     "default-address-pools":[{"base":"172.17.0.0/16","size":24}], - задается рабочая сетка докера
@@ -95,12 +95,8 @@ ___
 
 ___
 
-### Шаблоны в docker-compose
-Добавляются в определенно указанном месте/нескольких местах.
-Удобно если для группы сервисов указываются одни и те же сущности.
-
 <details>
-  <summary>Конструкция шаблона в docker-compose</summary>
+  <summary><b>Шаблоны в docker-compose</b></summary>
 
 - Указывается шаблон `<x-tamplate>`, затем указывается имя шаблона. В шаблоне может быть сколько угодно сущностей. Затем шаблон вставляется в необходимое место с помощью `<<: *<tamplate_name>`
 
@@ -122,16 +118,15 @@ x-tamplate: &<tamplate_name>
 
 ___
 
-### Профили в docker-compose.
-Для каждого сервиса может быть определен профиль. При запуске docker-compose будут подниматься только те сервисы, профиль которых будет указан при запуске (можно указать сразу несколько профилей)
+<details>
+  <summary>Объявление профиля в docker-compose</summary>
+> Для каждого сервиса может быть определен профиль. При запуске docker-compose будут подниматься только те сервисы, профиль которых будет указан при запуске (можно указать сразу несколько профилей)
 Сервисы будут загружаться если профиль будет указан в `<.env>` 
 ```<.env>
 PROFILE_NAME=production
 ```
-либо если в команду `<docker-compose>` будет передан флаг с профилем например: `<docker-compose --profile <my_profile> up -d>`
+>либо если в команду `<docker-compose>` будет передан флаг с профилем например: `<docker-compose --profile <my_profile> up -d>`
 
-<details>
-  <summary>Объявление профиля в docker-compose</summary>
 
 ```
   adminer:
