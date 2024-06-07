@@ -55,7 +55,9 @@ ___
 <details>
   <summary><b>Шаблоны для команд докера</b></summary>
 Если необходимо выдернуть какие-то определенные столбцы можно использовать <code>--format</code> флаг
-<code>❯ docker ps --format "table {{.Image}}\t{{.ID}}\t{{.Image}}\t{{.Command}}\t{{.RunningFor}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}" container_id </code>
+
+<details>{{.Image}}{{.ID}}\t{{.Image}}\t{{.Command}}\t{{.RunningFor}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}" container_id</details>
+
 На примере образа и имени
 <code> docker ps --format "table {{.Image}}\t{{.Names}}" container_id
 IMAGE                                                     NAMES
