@@ -56,10 +56,10 @@ ___
   <summary><b>Шаблоны для команд докера</b></summary>
 Если необходимо выдернуть какие-то определенные столбцы можно использовать <code>--format</code> флаг
 
-<details>{{.Image}}{{.ID}}\t{{.Image}}\t{{.Command}}\t{{.RunningFor}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}" container_id</details>
+<details>{{.Image}}{{.ID}}\t{{.Image}}\t{{.Command}}\t{{.RunningFor}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}</details>
 
 На примере образа и имени
-<code> docker ps --format "table {{.Image}}\t{{.Names}}" container_id
+<pre><code>❯ docker ps --format "table {{.Image}}\t{{.Names}}" container_id
 IMAGE                                                     NAMES
 harbor.limewax.ru/limewax/zabbix-nginx-pgsql:7.0          zabbix_dashboard_1
 harbor.limewax.ru/limewax/zabbix-server-pgsql:7.0         zabbix_server_1
