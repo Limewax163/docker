@@ -64,7 +64,7 @@ harbor.limewax.ru/limewax/redis:7.2.5                     zabbix_redis_1
 harbor.limewax.ru/limewax/postgres:15                     zabbix_postgres_1</code></pre>
 
 Либо в качестве шаблона можно использовать файл:
-<code>❯ docker ps --format "(cat /path/to/tamplate.tpl) container_id</code>
+<pre><code>❯ docker ps --format "(cat /path/to/tamplate.tpl)" container_id</code></pre>
 
 </details>
 
