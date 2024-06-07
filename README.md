@@ -54,15 +54,15 @@ ___
 
 <details>
   <summary><b>Шаблоны для команд докера</b></summary>
-На примере команды docker ps, если необходимо выдернуть какие-то определенные столбцы можно использовать <code>--format</code> флаг
-<pre><code>❯ docker ps --format "table {{.Image}}\t{{.Names}}" container_id
+Если необходимо выдернуть какие-то определенные столбцы можно использовать <code>--format</code> флаг
+<code>❯ docker ps --format "table {{.Image}}\t{{.ID}}\t{{.Image}}\t{{.Command}}\t{{.RunningFor}}\t{{.Status}}\t{{.Ports}}\t{{.Names}}" container_id </code>
+На примере образа и имени
+<code> docker ps --format "table {{.Image}}\t{{.Names}}" container_id
 IMAGE                                                     NAMES
 harbor.limewax.ru/limewax/zabbix-nginx-pgsql:7.0          zabbix_dashboard_1
 harbor.limewax.ru/limewax/zabbix-server-pgsql:7.0         zabbix_server_1
 harbor.limewax.ru/limewax/redis:7.2.5                     zabbix_redis_1
 harbor.limewax.ru/limewax/postgres:15                     zabbix_postgres_1</code></pre>
-
-ffffffffffffffffffffffffffffffffffffffffff <details>aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</details>
 
 Либо в качестве шаблона можно использовать файл:
 <pre><code>❯ docker ps --format "(cat /path/to/tamplate.tpl)" container_id</code></pre>
