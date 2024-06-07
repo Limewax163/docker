@@ -55,7 +55,6 @@ ___
 <details>
   <summary><b>Шаблоны для команд докера</b></summary>
 На примере команды docker ps, если необходимо выдернуть какие-то определенные столбцы можно использовать <code>--format</code> флаг
-
 <pre><code>❯ docker ps --format "table {{.Image}}\t{{.Names}}" container_id
 IMAGE                                                     NAMES
 harbor.limewax.ru/limewax/zabbix-nginx-pgsql:7.0          zabbix_dashboard_1
