@@ -21,7 +21,7 @@
 - `docker rm -f $(docker ps -aq) && docker rmi -f $(docker images -q)` удаляет все образы и контейнеры
 - `docker inspect <container_id>` - информация по запущенному контейнеру
   - `--format` с флагом поддерживает шаблоны в формате json для парсинга
-  - `docker inspect --format "$(/path/to/tamplate.tpl)"`чтобы удобно распарсить вывод из файла в `docker run` команду. Сам шаблон [ТУТ](https://github.com/Limewax163/docker/blob/main/tamplate/inspect-to-compose.tpl)
+  - `docker inspect --format "$(/path/to/tamplate.tpl)"`чтобы удобно распарсить вывод из файла в `docker run` команду. Сам шаблон [ТУТ](https://github.com/Limewax163/docker/blob/main/tamplate/inspect-to-compose.tpl) либо можно взять шаблон из сети, тогда `$(curl -s <url>)`
 - `docker login <url:port(if exist)>` - для логина в регистри гитлаба (если в ссылке указан порт, при логине его необходимо указывать)
 - `docker exec <flags> <container_name/id> <command>` - подключение к docker с выполнением какой-то определенной команды внутри
   - `-i` - запуск команды в интерактивном режиме
