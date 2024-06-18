@@ -53,7 +53,7 @@ ___
 </details>
 
 <details>
-  <summary><b>Шаблоны для команд докера</b></summary>
+  <summary><b>Фильтры для команд докера</b></summary>
 Если необходимо выдернуть какие-то определенные столбцы можно использовать <code>--format</code> флаг
 <details><summary>Варианты</summary>{{.Image}}  {{.ID}}  {{.Image}}  {{.Command}}  {{.RunningFor}}  {{.Status}}  {{.Ports}}  {{.Names}}</details>
 На примере образа и имени
