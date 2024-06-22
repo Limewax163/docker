@@ -1,6 +1,7 @@
 <details>
   <summary><b>docker/docker-compose command</b></summary>
-  
+
+- `docker info` - посмотреть главную конфигу docker (изменение стандартных конфигураций описывается в файле /etc/docker/daemon.json)  
 - `docker build` - команда сборки образа docker
   - `-t` - указывает _tag_ собирающегося образа
   - `--force-rm` - удаление промежуточных контейнеров
