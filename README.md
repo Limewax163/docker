@@ -133,6 +133,8 @@ ___
     "default-address-pools":[{"base":"172.17.0.0/16","size":24}], - задается рабочая сетка докера
     "insecure-registries":["registry.gitlab.domain.ru"], - настройка недоверенных регистров контейнеров
     "registry-mirrors":["https://mirror.gcr.io"], - настройка зеркал для пула контейнеров
+    "dns": ["8.8.8.8", "8.8.8.4"], - явное указание DNS для docker
+    "experimental": true, - включение экспереминтальных функций
     "log-driver": "json-file", - настройки логирования
     "log-opts": {
       "max-size": "10m",
