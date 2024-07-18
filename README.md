@@ -106,7 +106,7 @@ ___
     build:
       context: /path/to/Dockerfile
       ARG:
-        USER: $CONTAINER_USER
+        USER: "${CONTAINER_USER}"
   ...
   ```
   ```.env
