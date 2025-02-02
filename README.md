@@ -95,20 +95,19 @@ ___
 <details>
   <summary><b>Плагины для Docker</b></summary>
 
-> Для установки плагинов для докера используется команда
-> 
-> `docker plugin install <docker_plugin> --alias <plugin_name> --<grant_all_permissions>`
-> 
-> Например, при настройке параметров окружения или конфигурации Docker JSON можно задать "log-driver": "plugin_name", система автоматически применит установленный плагин с этим алиасом (в данном случае логирование).
+- `docker plugin install <docker_plugin_url> --alias <plugin_name> --<grant_all_permissions>` - установка плагина (--alias создает короткое имя для применения плагина в конфигурациях докера --grant_all_permission добавляет права для плагина)
+- `docker plugin ls` - посмотреть список установленых плагинов
+- `docker plugin <disable/enable> <plugin_name>` - включить отключить плагин
+- `docker plugin upgrade <plugin_name> <docker_plugin_url> --<some_specified_flags>` - обновление плагина (перед обновлением плагин отключается, затем обновляется, затем включается, затем перезагружается демон докера) 
 
-<details>
-  <summary><b>Loki - Драйвер логирования для Docker</b></summary>
+  <details>
+    <summary><b>Loki - Драйвер логирования для Docker</b></summary>
 
-```
-docker plugin install grafana/loki-docker-driver:3.3.2-arm64 --alias loki --grant-all-permissions
-```
+    ```
+    docker plugin install grafana/loki-docker-driver:3.3.2-arm64 --alias loki --grant-all-permissions
+    ```
 
-</details>
+  </details>
 </details>
 
 ___
