@@ -174,7 +174,7 @@ ___
 ___
 
 <details>
-  <summary><b>Шаблоны в docker-compose</b></summary>
+  <summary><b>Шаблоны в docker-compose (yml-anchor)</b></summary>
 
 - Указывается шаблон `<x-tamplate>`, затем указывается имя шаблона. В шаблоне может быть сколько угодно сущностей. Затем шаблон вставляется в необходимое место с помощью `<<: *<tamplate_name>`
 
