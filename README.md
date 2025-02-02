@@ -93,6 +93,28 @@ harbor.limewax.ru/limewax/postgres:15                     zabbix_postgres_1</cod
 ___
 
 <details>
+  <summary><b>Плагины для Docker</b></summary>
+
+> Для установки плагинов для докера используется команда
+> 
+> `docker plugin install <docker_plugin> --alias <plugin_name> --<grant_all_permissions>`
+> 
+> Например, при настройке параметров окружения или конфигурации Docker JSON можно задать "log-driver": "plugin_name", система автоматически применит установленный плагин с этим алиасом (в данном случае логирование).
+
+<details>
+  <summary><b>Loki - Драйвер логирования для Docker</b></summary>
+
+```
+docker plugin install grafana/loki-docker-driver:3.3.2-arm64 --alias loki --grant-all-permissions
+```
+
+</details>
+</details>
+
+___
+
+
+<details>
   <summary><b>Основные сущности Dockerfile</b></summary>
   
 - `FROM` - указать базовый образ на основе которого будет собираться новый
