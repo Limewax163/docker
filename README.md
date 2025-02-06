@@ -45,6 +45,8 @@
   - `-t` - запуск команды с подключением к терминалу
   - `-u` - вход под определенным пользователем
 - `docker cp /path/to/local/file container_id:/path/to/destination` - для копирования файла в контейнер докера
+- `docker save -o my-image.tar my-image:latest` - сохранить образ в tar
+- `docker load -i my image.tar` - подгрузить образ из tar в локальную библиотеку докера
 ___
 
 - `docker-compose up` - поднимает контейнеры из описанного в текущей директории конфига compose
