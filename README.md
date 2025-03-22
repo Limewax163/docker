@@ -152,18 +152,32 @@ ___
 - `ENV` - устанавливает постоянные переменные среды в образе
 - `RUN` - выполняет команду и создает слой образа
 - `COPY` - копирует данные в контейнер
+      <details>
+  <summary>COPY</summary>
+  - Если Dockerfile включает в себя несколько этапов сборки AS/FROM, то можно передать определенные данные через COPY из одной сборки в другую, например:
+  ```
+  # build stage
+  FROM node:14 as build-stage
+  ...
+  RUN npm run build #Билдятся файлы в определенную папку, например /usr/src/app/dist
+  # production stage
+  FROM nginx:stable-alpine as production-stage
+  COPY --from=build-stage /usr/src/app/dist /usr/share/nginx/html #Из стадии билда забираются статичные файлы для nginx и стартует контейнер nginx с уже готовой сборкой фронта
+  ```
 - `ADD` - более функциональная версия _COPY_
 - `CMD` - команда с аргументами. выполняются сразу после запуска контейнера
-- `ARG` - задаёт переменные для передачи во время сборки
+- `ARG` - передает переменные в сборку (например из docker-compose)
     <details>
   <summary>ARG</summary>
 
-  ```Dockerfile
+  ```
+  Dockerfile
   FROM <image>
   ARG USER
   RUN adduser $USER
   ```
-  ```docker-compose.yml
+  ```
+  docker-compose.yml
   service:
     nginx:
     build:
@@ -172,7 +186,8 @@ ___
         USER: "${CONTAINER_USER}"
   ...
   ```
-  ```.env
+  ```
+  .env
   CONTAINER_USER=MY_AWESOME_USER
   ```
   </details>
