@@ -87,6 +87,12 @@ harbor.limewax.ru/limewax/postgres:15                     zabbix_postgres_1</cod
 Либо в качестве шаблона можно использовать файл:
 <pre><code>❯ docker ps --format "(cat /path/to/tamplate.tpl)" container_id</code></pre>
 
+Можно фильтровать по определенным зависимостям
+  - тут вернет все контейнеры со статусом exited
+  ```
+  docker ps -a --filter "status=exited"
+  ```
+
 </details>
 
 > [!NOTE]
