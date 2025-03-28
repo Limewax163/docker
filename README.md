@@ -228,6 +228,10 @@ ___
       "max-size": "10m",
       "max-file": "3"
       }
+    }
+    "features": {
+            "containerd-snapshotter": true - для buildix и сборки мультиплатформенных образов (незабыть про флаг --provenance=false)
+    }
 }
   </pre>
 </details>
