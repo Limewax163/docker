@@ -90,7 +90,7 @@ harbor.limewax.ru/limewax/postgres:15                     zabbix_postgres_1</cod
 Можно фильтровать по определенным зависимостям
   - тут вернет все контейнеры со статусом exited
   ```
-  docker ps -a --filter "status=exited"
+  docker ps -a --filter "status=exited/running/другие статусы"
   ```
 
 </details>
