@@ -17,7 +17,7 @@
   ```
   Установить alias для докера < v.28
   ```
-  sudo rm /bin/docker-compose && sudo sh -c "echo 'docker compose "$@"' > docker-compose"
+  sudo mv /bin/docker-compose /bin/docker-compose-BACKUP && sudo sh -c "echo 'docker compose "$@"' > docker-compose"
   ```
   Установить alias для докера >= v.28
   ```
