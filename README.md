@@ -269,7 +269,8 @@ ___
       }
     }
     "features": {
-            "containerd-snapshotter": true - для buildix и сборки мультиплатформенных образов (незабыть про флаг --provenance=false)
+            "containerd-snapshotter": false - включается для buildix и сборки мультиплатформенных образов (незабыть про флаг --provenance=false)
+            "buildkit": false - включается для buildix и сборки мультиплатформенных образов
     }
 }
   </pre>
