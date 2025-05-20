@@ -219,10 +219,14 @@ ___
   - В Dockerfile можно указать ARG (например USER) и далее после объявленного ARG в переменную USER можно вызывать ее в контексте сборки как $USER. Подкинуть эту переменную можно из docker-compose файла в котором будет указанно значение для этой переменной (в рамках docker-compose можно так же указать забирать эту переменную из .env объявив в качестве аргумента переменную в .env $USER:
 
   ```
+  .env
+  CONTAINER_USER=MY_AWESOME_USER
+  ```
+  ```
   Dockerfile
   FROM <image>
-  ARG USER
-  RUN adduser $USER
+  ARG CONTAINER_USER
+  RUN adduser $CONTAINER_USER
   ```
   ```
   docker-compose.yml
@@ -233,10 +237,6 @@ ___
       ARG:
         USER: "${CONTAINER_USER}"
   ...
-  ```
-  ```
-  .env
-  CONTAINER_USER=MY_AWESOME_USER
   ```
   </details>
 
