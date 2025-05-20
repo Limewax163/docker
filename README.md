@@ -234,7 +234,7 @@ ___
     nginx:
     build:
       context: /path/to/Dockerfile
-      ARG:
+      args:
         USER: "${CONTAINER_USER}"
   ...
   ```
