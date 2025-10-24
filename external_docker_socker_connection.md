@@ -6,7 +6,6 @@
    Loaded: loaded (/usr/lib/systemd/system/docker.service; enabled; preset: enabled)
    ```
 2. Видим что докер стартует `/usr/lib/systemd/system/docker.service` и идем его редачить (вариант с `sudo systemctl edit docker` тоже нихрена не работает
-   и идем его редачить
 
    Нас интересует секция [Service]
    ```
