@@ -1,6 +1,6 @@
 Существует три варианта настройки ранера DIND для гитлаба
-1. DonD - Докер использует удаленный сокет докера как свой (используя среду настроящего хозяина/хоста сокета
-2. DinD - Докер подключается к удаленному сокету по порту 2375 либо 2376(с TLS) (используется удаленный сокет, но "среда выполнения" находится в контейнере докера)
+1. DonD - Докер использует удаленный сокет докера как свой
+2. DinD - Докер подключается к удаленному сокету по порту 2375 либо 2376(с TLS)
 3. какие-то сторонние штуки в виде kaniko, builder(buildx) или что-то еще. пока не разбирался
 
 Опишу три варианта подключения. DonD и два DinD
@@ -107,3 +107,29 @@ variables:
 ```
 - `SHARED_PATH` - не уверен что это гавно необходимо
 - `DOCKER_CERT_PATH` - как раз та самая директория в которую маппились сертификаты котрые я сгенерил
+
+Если мы используем в контексте сборки buildx
+```
+  script:
+    - |
+      curl --output $CI_PROJECT_DIR/.env --header "JOB-TOKEN:$CI_JOB_TOKEN" "$CI_API_V4_URL/projects/17/repository/files/.env/raw?ref=$CI_COMMIT_REF_SLUG"
+      curl --output $CI_PROJECT_DIR/auth.json --header "JOB-TOKEN:$CI_JOB_TOKEN" "$CI_API_V4_URL/projects/17/repository/files/auth.json/raw?ref=$CI_COMMIT_REF_SLUG"
+    - docker buildx build
+      --provenance=false
+      --build-context project=.
+      --cache-from type=registry,ref=$CACHE_IMAGE
+      --cache-to type=registry,ref=$CACHE_IMAGE,mode=max
+      --build-arg APP_ENV=$CI_COMMIT_REF_SLUG
+      --platform linux/amd64,linux/arm64/v8
+      --target app
+      --tag $APP_TEST_IMAGE
+      --target worker
+      --tag $WORKER_TEST_IMAGE
+      --push
+      docker/app/.
+```
+То на хосте хозяина докера будут созданы 3 контейнера
+- gitlab-runner-helper 
+- docker:28.5.1-dind-alpine3.22 (стоит рассматривать как пример из вышеописанных манов, образ DinD может быть любым другим)
+- moby/buildkit:buildx-stable-1
+> Все остальные билды которые выполнялись в рамках вышеописанного скрипта на хосте не сохранялись, включая образ используемый как кеш для последующих сборок
