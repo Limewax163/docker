@@ -301,6 +301,32 @@ ___
 ___
 
 <details>
+  <summary><b>Настройки конфига containerd</b> - <code>/etc/containerd/config.toml</code></summary>
+
+  ```
+  disabled_plugins = ["cri"]
+
+  root = "/data/docker/containerd"   <--- здесь можно задать кастомный путь для хранения данных containerd
+  #state = "/run/containerd"
+  #subreaper = true
+  #oom_score = 0
+
+  #[grpc]
+  #  address = "/run/containerd/containerd.sock"
+  #  uid = 0
+  #  gid = 0
+
+  #[debug]
+  #  address = "/run/containerd/debug.sock"
+  #  uid = 0
+  #  gid = 0
+  #  level = "info
+  ```
+</details>
+
+___
+
+<details>
   <summary><b>Шаблоны в docker-compose (yml-anchor)</b></summary>
 
 - Указывается шаблон `<x-tamplate>`, затем указывается имя шаблона. В шаблоне может быть сколько угодно сущностей. Затем шаблон вставляется в необходимое место с помощью `<<: *<tamplate_name>`
