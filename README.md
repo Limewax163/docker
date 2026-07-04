@@ -281,8 +281,7 @@ ___
     "log-opts": {
       "max-size": "10m",
       "max-file": "3"
-      }
-    }
+    },
     "features": {
             включается для buildix и сборки мультиплатформенных образов (незабыть про флаг --provenance=false)
             "containerd-snapshotter": false
